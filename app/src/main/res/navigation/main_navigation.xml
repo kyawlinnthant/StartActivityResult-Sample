@@ -14,13 +14,10 @@
             android:id="@+id/action_a_to_b"
             app:destination="@id/b" />
         <argument
-            android:name="new_data"
-            android:defaultValue="Empty"
-            app:argType="string" />
-        <argument
-            android:name="old_data"
-            android:defaultValue="Empty "
-            app:argType="string" />
+            android:name="et_data"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
 
 
@@ -30,21 +27,14 @@
         android:label="B"
         tools:layout="@layout/fragment_b">
         <action
-            android:id="@+id/action_new"
+            android:id="@+id/action_b_to_a"
             app:destination="@id/a">
             <argument
-                android:name="new_data"
+                android:name="et_data"
+                android:defaultValue="@null"
                 app:argType="string"
-                android:defaultValue="new empty" />
+                app:nullable="true" />
         </action>
-        <action
-            android:id="@+id/action_old"
-            app:destination="@id/a">
-            <argument
-                android:name="old_data"
-                app:argType="string"
-                android:defaultValue="old empty" />
 
-        </action>
     </fragment>
 </navigation>

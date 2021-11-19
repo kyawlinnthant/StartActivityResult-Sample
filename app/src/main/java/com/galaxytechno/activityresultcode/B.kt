@@ -10,10 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 
 class B : Fragment() {
-    lateinit var btnOld: Button
-    lateinit var etOld: EditText
-    lateinit var btnNew: Button
-    lateinit var etNew: EditText
+    lateinit var btn: Button
+    lateinit var et: EditText
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,17 +29,11 @@ class B : Fragment() {
 
     private fun init(view: View) {
 
-        btnOld = view.findViewById(R.id.btn_old_b)
-        etOld = view.findViewById(R.id.et_old_b)
-        btnNew = view.findViewById(R.id.btn_new_b)
-        etNew = view.findViewById(R.id.et_new_b)
+        btn = view.findViewById(R.id.btn_b)
+        et = view.findViewById(R.id.et_b)
 
-        btnOld.setOnClickListener {
-            val action = BDirections.actionOld(etOld.text.toString())
-            findNavController().navigate(action)
-        }
-        btnNew.setOnClickListener {
-            val action = BDirections.actionNew(etNew.text.toString())
+        btn.setOnClickListener {
+            val action = BDirections.actionBToA(et.text.toString())
             findNavController().navigate(action)
         }
     }

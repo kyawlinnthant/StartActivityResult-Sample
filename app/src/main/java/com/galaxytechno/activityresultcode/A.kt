@@ -12,13 +12,11 @@ import androidx.navigation.fragment.navArgs
 
 class A : Fragment() {
 
-    private lateinit var btnOld: Button
-    private lateinit var tvOld: TextView
-    private lateinit var btnNew: Button
-    private lateinit var tvNew: TextView
+    private lateinit var btn: Button
+    private lateinit var tv: TextView
 
 
-    private val args: AArgs by navArgs()
+    private val args: AArgs? by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,20 +32,15 @@ class A : Fragment() {
     }
 
     private fun init(view: View) {
-        btnOld = view.findViewById(R.id.btn_old_a)
-        tvOld = view.findViewById(R.id.tv_old_a)
-        btnNew = view.findViewById(R.id.btn_new_a)
-        tvNew = view.findViewById(R.id.tv_new_a)
+        btn = view.findViewById(R.id.btn_a)
+        tv = view.findViewById(R.id.tv_a)
 
-        btnOld.setOnClickListener {
-            findNavController().navigate(R.id.action_a_to_b)
-        }
-        btnNew.setOnClickListener {
+        btn.setOnClickListener {
             findNavController().navigate(R.id.action_a_to_b)
         }
 
-        tvOld.text = args.oldData
-        tvNew.text = args.newData
+        if(!args?.etData.equals(null)) tv.text = args?.etData
+
     }
 
 
