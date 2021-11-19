@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/a">
+
+    <fragment
+        android:id="@+id/a"
+        android:name="com.galaxytechno.activityresultcode.A"
+        android:label="A"
+        tools:layout="@layout/fragment_a">
+        <action
+            android:id="@+id/action_a_to_b"
+            app:destination="@id/b" />
+        <argument
+            android:name="new_data"
+            android:defaultValue="Empty"
+            app:argType="string" />
+        <argument
+            android:name="old_data"
+            android:defaultValue="Empty "
+            app:argType="string" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/b"
+        android:name="com.galaxytechno.activityresultcode.B"
+        android:label="B"
+        tools:layout="@layout/fragment_b">
+        <action
+            android:id="@+id/action_new"
+            app:destination="@id/a">
+            <argument
+                android:name="new_data"
+                app:argType="string"
+                android:defaultValue="new empty" />
+        </action>
+        <action
+            android:id="@+id/action_old"
+            app:destination="@id/a">
+            <argument
+                android:name="old_data"
+                app:argType="string"
+                android:defaultValue="old empty" />
+
+        </action>
+    </fragment>
+</navigation>
